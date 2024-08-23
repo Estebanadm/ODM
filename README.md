@@ -20,9 +20,12 @@ The easiest way to run ODM on is via docker. To install docker, see [docs.docker
 ```bash
 # Windows
 docker run -ti --rm -v c:/Users/youruser/datasets:/datasets opendronemap/odm --project-path /datasets project
-
+# /home/estebanduran/Documents/GitHub/ODM/docker
 # Mac/Linux
-docker run -ti --rm -v /home/youruser/datasets:/datasets opendronemap/odm --project-path /datasets project
+docker run -ti --rm --gpus all -v /home/estebanduran/Documents/GitHub/ODM/datasets/project/images:/datasets opendronemap/odm:gpu --project-path /datasets project --fast-orthophoto
+
+docker run -it --rm --gpus all -v /home/estebanduran/Documents/GitHub/ODM opendronemap/odm --project-path /datasets --fast-orthophoto --shm-size 8G
+
 ```
 
 You can pass [additional parameters](https://docs.opendronemap.org/arguments/) by appending them to the command:
